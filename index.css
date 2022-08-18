@@ -1,0 +1,81 @@
+.stepper-wrapper {
+    font-family: Arial, sans-serif;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #b6b6b6;
+    font-weight: 500;
+    width: 500px;
+}
+
+.stepper-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    height: 100px;
+    justify-content: space-between;
+}
+
+.stepper-item::after,
+.stepper-item::before  {
+    position: absolute;
+    content: "";
+    border-bottom: 4px solid #ccc;
+    width: 100%;
+    bottom: 20px;
+    z-index: 2;
+}
+
+.stepper-item::before {
+    left: -50%;
+}
+
+.stepper-item::after {
+    left: 50%;
+}
+
+.stepper-item .step-point {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #ccc;
+    border: 5px solid #fff;
+    margin-bottom: 6px;
+}
+
+.stepper-item.active .step-point,
+.stepper-item.completed .step-point {
+    background-color: #000;
+    border: 5px solid #fff;
+    box-shadow: 0 0 2px 0 #000;
+}
+
+.stepper-item.active .step-point {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 5px;
+}
+
+.stepper-item.completed::after {
+    position: absolute;
+    content: "";
+    border-bottom: 4px solid #000;
+    width: 100%;
+    bottom: 20px;
+    left: 50%;
+    z-index: 3;
+}
+
+.stepper-item:first-child::before,
+.stepper-item:last-child::after {
+    content: none;
+}
